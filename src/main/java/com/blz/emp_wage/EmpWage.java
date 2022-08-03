@@ -1,24 +1,30 @@
 package com.blz.emp_wage;
 
 public class EmpWage {
+    public static final int Is_Part_time = 1;
+    public static final int Is_Full_time = 2;
+    public static final int Employ_Rate_Per_hr = 20 ;
+
     public static void main(String[] args) {
         System.out.println("welcome to employee wage computation");
 
-        int emp_present = 1;
-        int wage_per_hr = 20;
-        int full_day_hr = 8;
-        int part_time_hr = 8;
-
-        double emp_check = Math.floor(Math.random() * 10) % 2;
-        if (emp_check == emp_present) {
-            System.out.println("employee is present");
-            //calculating daily wage including part time hour
-            int daily_wage = wage_per_hr * full_day_hr + wage_per_hr * part_time_hr;
-            System.out.println("daily wage of employee " + daily_wage);
+        int employ_Hr = 0;
+        int employ_wage = 0;
+//Computation
+        int empcheck = (int) Math.floor(Math.random() * 10) % 3;
+        switch (empcheck) {
+            case Is_Part_time:
+                employ_Hr = 4;
+                break;
+            case Is_Full_time:
+                employ_Hr = 8;
+                break;
+            default:
+                employ_Hr = 0;
         }
+        employ_wage = Employ_Rate_Per_hr * employ_Hr;
+        System.out.println("daily wage of employ is "+ employ_wage);
 
-        else {
-            System.out.println("employee is absent");
-        }
     }
+
 }
